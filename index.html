@@ -1,0 +1,553 @@
+<!DOCTYPE html><html lang="pt"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>googlefedback</title><style></style></head><body><!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feedback para a Google</title>
+    <link href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --google-blue: #4285F4;
+            --google-red: #EA4335;
+            --google-yellow: #FBBC05;
+            --google-green: #34A853;
+            --text-primary: #202124; /* Google Grey 900 */
+            --text-secondary: #5F6368; /* Google Grey 700 */
+            --bg-color: #F8F9FA; /* Google Grey 100 */
+            --border-color: #DADCE0; /* Google Grey 300 */
+            --shadow-light: rgba(60, 64, 67, 0.1);
+            --shadow-strong: rgba(60, 64, 67, 0.15);
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif; /* Roboto para corpo de texto */
+            background-color: var(--bg-color);
+            color: var(--text-secondary);
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            overflow-x: hidden; /* Evita scroll horizontal em pequenas animações */
+        }
+
+        .container {
+            background-color: #fff;
+            padding: 40px 50px; /* Mais padding horizontal */
+            border-radius: 12px; /* Cantos mais arredondados */
+            box-shadow: 0 8px 24px var(--shadow-strong); /* Sombra mais pronunciada */
+            max-width: 750px; /* Ligeiramente mais largo */
+            width: 100%;
+            box-sizing: border-box;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInSlideUp 0.8s forwards cubic-bezier(0.2, 0.8, 0.2, 1); /* Animação mais suave */
+            position: relative; /* Para efeitos de fundo */
+            overflow: hidden; /* Para garantir que as cores de fundo não vazam */
+        }
+
+        /* Animação de fundo subtil - inspirada nos elementos gráficos da Google */
+        .container::before {
+            content: '';
+            position: absolute;
+            top: -50px;
+            left: -50px;
+            width: 150px;
+            height: 150px;
+            background-color: var(--google-blue);
+            border-radius: 50%;
+            opacity: 0.05;
+            filter: blur(40px);
+            animation: bgElement1 15s infinite alternate ease-in-out;
+            z-index: 0;
+        }
+
+        .container::after {
+            content: '';
+            position: absolute;
+            bottom: -50px;
+            right: -50px;
+            width: 180px;
+            height: 180px;
+            background-color: var(--google-green);
+            border-radius: 50%;
+            opacity: 0.05;
+            filter: blur(40px);
+            animation: bgElement2 18s infinite alternate-reverse ease-in-out;
+            z-index: 0;
+        }
+
+        @keyframes bgElement1 {
+            0% { transform: translate(0, 0) scale(1); }
+            50% { transform: translate(20px, 20px) scale(1.1); }
+            100% { transform: translate(0, 0) scale(1); }
+        }
+        @keyframes bgElement2 {
+            0% { transform: translate(0, 0) scale(1); }
+            50% { transform: translate(-20px, -20px) scale(0.9); }
+            100% { transform: translate(0, 0) scale(1); }
+        }
+
+
+        @keyframes fadeInSlideUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .logo {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .logo img {
+            width: 200px; /* Ligeiramente maior */
+            max-width: 100%;
+            height: auto;
+            animation: zoomIn 0.8s forwards ease-out;
+            animation-delay: 0.2s;
+            opacity: 0;
+        }
+
+        @keyframes zoomIn {
+            from { opacity: 0; transform: scale(0.9); }
+            to { opacity: 1; transform: scale(1); }
+        }
+
+        h2 {
+            font-family: 'Google Sans', sans-serif; /* Google Sans para títulos */
+            text-align: center;
+            color: var(--text-primary); /* Mais escuro para contraste */
+            margin-bottom: 35px;
+            font-weight: 700; /* Mais negrito */
+            font-size: 32px; /* Maior */
+            line-height: 1.3;
+            animation: fadeIn 0.8s forwards ease-out;
+            animation-delay: 0.4s;
+            opacity: 0;
+        }
+
+        .form-group {
+            margin-bottom: 30px; /* Mais espaço entre grupos */
+            position: relative;
+            animation: slideInRight 0.7s forwards cubic-bezier(0.2, 0.8, 0.2, 1); /* Animação de entrada */
+            opacity: 0;
+        }
+
+        /* Atrasos individuais para cada form-group */
+        .form-group:nth-child(1) { animation-delay: 0.6s; }
+        .form-group:nth-child(2) { animation-delay: 0.7s; }
+        .form-group:nth-child(3) { animation-delay: 0.8s; }
+        .form-group:nth-child(4) { animation-delay: 0.9s; }
+        .form-group:nth-child(5) { animation-delay: 1.0s; }
+        .form-group:nth-child(6) { animation-delay: 1.1s; }
+
+
+        @keyframes slideInRight {
+            from { opacity: 0; transform: translateX(30px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: 500;
+            font-size: 18px; /* Ligeiramente maior */
+            color: var(--text-primary);
+        }
+
+        input[type="text"],
+        input[type="email"],
+        textarea {
+            width: 100%;
+            padding: 14px 18px; /* Mais padding */
+            border: 1px solid var(--border-color);
+            border-radius: 8px; /* Mais arredondado */
+            font-size: 17px; /* Ligeiramente maior */
+            color: var(--text-primary);
+            box-sizing: border-box;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        input[type="text"]:focus,
+        input[type="email"]:focus,
+        textarea:focus {
+            border-color: var(--google-blue);
+            outline: none;
+            box-shadow: 0 0 0 4px rgba(66, 133, 244, 0.25); /* Sombra de foco mais visível */
+        }
+
+        textarea {
+            resize: vertical;
+            min-height: 120px; /* Altura mínima maior */
+        }
+
+        .radio-group {
+            display: flex;
+            flex-direction: column; /* Rádios em coluna para melhor legibilidade */
+            gap: 12px;
+        }
+
+        .radio-group label {
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+            position: relative;
+            padding-left: 35px; /* Espaço para custom radio button */
+            margin-bottom: 0;
+            font-weight: 400;
+            font-size: 17px;
+            color: var(--text-secondary);
+            transition: color 0.2s ease;
+        }
+
+        .radio-group label:hover {
+            color: var(--text-primary);
+        }
+
+        .radio-group input[type="radio"] {
+            position: absolute;
+            opacity: 0;
+            cursor: pointer;
+            height: 0;
+            width: 0;
+        }
+
+        .radio-custom {
+            position: absolute;
+            top: 2px; /* Ajuste fino */
+            left: 0;
+            height: 22px; /* Ligeiramente maior */
+            width: 22px; /* Ligeiramente maior */
+            background-color: #fff;
+            border-radius: 50%;
+            border: 2px solid var(--border-color);
+            transition: background-color 0.3s ease, border-color 0.3s ease;
+        }
+
+        .radio-group input[type="radio"]:checked ~ .radio-custom {
+            background-color: var(--google-blue);
+            border-color: var(--google-blue);
+            animation: radioCheck 0.3s forwards ease-out; /* Animação ao marcar */
+        }
+
+        @keyframes radioCheck {
+            from { transform: scale(0.8); }
+            to { transform: scale(1); }
+        }
+
+        .radio-custom:after {
+            content: "";
+            position: absolute;
+            display: none;
+            top: 6px;
+            left: 6px;
+            width: 10px; /* Ponto central maior */
+            height: 10px; /* Ponto central maior */
+            border-radius: 50%;
+            background: white;
+        }
+
+        .radio-group input[type="radio"]:checked ~ .radio-custom:after {
+            display: block;
+        }
+
+        button {
+            background-color: var(--google-blue);
+            color: white;
+            padding: 14px 30px; /* Mais padding */
+            border: none;
+            border-radius: 8px; /* Mais arredondado */
+            font-size: 19px; /* Maior */
+            font-weight: 500;
+            cursor: pointer;
+            display: flex; /* Para centralizar conteúdo e spinner */
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            max-width: 300px; /* Ligeiramente mais largo */
+            margin: 40px auto 0;
+            transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+            box-shadow: 0 4px 8px var(--shadow-light);
+            animation: fadeIn 0.8s forwards ease-out;
+            animation-delay: 1.2s;
+            opacity: 0;
+        }
+
+        button:hover {
+            background-color: #357ae8; /* Azul ligeiramente mais escuro */
+            transform: translateY(-3px); /* Levanta mais ao passar o rato */
+            box-shadow: 0 6px 12px var(--shadow-strong);
+        }
+
+        button:active {
+            transform: translateY(0);
+            box-shadow: 0 2px 4px var(--shadow-light);
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .message {
+            margin-top: 30px;
+            padding: 18px;
+            border-radius: 8px;
+            font-weight: 500;
+            text-align: center;
+            opacity: 0;
+            animation: fadeIn 0.6s forwards ease-out;
+            font-size: 17px;
+        }
+
+        .success {
+            background-color: #E6F4EA; /* Google Green 100 */
+            color: var(--google-green);
+            border: 1px solid #A8D1B3; /* Google Green 300 */
+        }
+
+        .error {
+            background-color: #FCE8E6; /* Google Red 100 */
+            color: var(--google-red);
+            border: 1px solid #F5C6CB; /* Google Red 300 */
+        }
+
+        .loading-spinner {
+            display: none; /* Hidden by default */
+            border: 4px solid rgba(0, 0, 0, 0.1);
+            border-top: 4px solid white; /* Spinner branco sobre o botão azul */
+            border-radius: 50%;
+            width: 26px;
+            height: 26px;
+            animation: spin 0.8s linear infinite; /* Rotação mais rápida */
+            margin-left: 10px;
+            box-sizing: border-box;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .button-content {
+            display: flex; /* Para alinhar o texto e o spinner */
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Responsividade */
+        @media (max-width: 768px) {
+            .container {
+                padding: 30px;
+                margin: 15px;
+            }
+            h2 {
+                font-size: 26px;
+            }
+            label {
+                font-size: 16px;
+            }
+            input[type="text"],
+            input[type="email"],
+            textarea,
+            .radio-group label {
+                font-size: 15px;
+            }
+            button {
+                padding: 12px 20px;
+                font-size: 17px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 20px;
+            }
+            h2 {
+                font-size: 22px;
+            }
+            .logo img {
+                width: 150px;
+            }
+            .form-group {
+                margin-bottom: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="logo">
+            <img src="https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png" alt="Google Logo">
+        </div>
+
+        <h2>O seu feedback é muito importante para a Google!</h2>
+        <form id="feedbackForm">
+            <input type="hidden" id="scriptURL" value="https://script.google.com/macros/s/AKfycbzt2GiX7cKmpCOyiBQCcJcT8zzrHZvFsGQ-2dWWgPHVmmLC011FVL3v9lTgA-Tv6wJE3Q/exec">
+
+            <div class="form-group">
+                <label for="nome">O seu Nome (Opcional):</label>
+                <input type="text" id="nome" name="Nome Completo" placeholder="Ex: João Silva">
+            </div>
+
+            <div class="form-group">
+                <label for="email">O seu Email (Opcional):</label>
+                <input type="email" id="email" name="Email" placeholder="Ex: seu.email@gmail.com">
+            </div>
+
+            <div class="form-group">
+                <label>O que acha de andar na rua para obter um verificado da Google?</label>
+                <textarea id="opiniaoVerificado" name="Opinião Verificado Google" rows="4" placeholder="Deixe a sua opinião aqui..." required></textarea>
+            </div>
+
+            <div class="form-group">
+                <label>Acha que a Google deveria fazer verificações/parcerias com mais empresas ou não?</label>
+                <div class="radio-group">
+                    <label>
+                        <input type="radio" name="Mais Parcerias" value="Sim, definitivamente" required>
+                        <span class="radio-custom"></span>
+                        Sim, definitivamente
+                    </label>
+                    <label>
+                        <input type="radio" name="Mais Parcerias" value="Não, o suficiente">
+                        <span class="radio-custom"></span>
+                        Não, já é o suficiente
+                    </label>
+                    <label>
+                        <input type="radio" name="Mais Parcerias" value="Não sei / Não tenho opinião">
+                        <span class="radio-custom"></span>
+                        Não sei / Não tenho opinião
+                    </label>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label>Está satisfeita(o) com os serviços da Google em geral?</label>
+                <div class="radio-group">
+                    <label>
+                        <input type="radio" name="Satisfação Google" value="Sim, muito satisfeita(o)" required>
+                        <span class="radio-custom"></span>
+                        Sim, muito satisfeita(o)
+                    </label>
+                    <label>
+                        <input type="radio" name="Satisfação Google" value="Em parte, pode melhorar">
+                        <span class="radio-custom"></span>
+                        Em parte, pode melhorar
+                    </label>
+                    <label>
+                        <input type="radio" name="Satisfação Google" value="Não, insatisfeita(o)">
+                        <span class="radio-custom"></span>
+                        Não, insatisfeita(o)
+                    </label>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label>Acha que a Google deveria dar mais apoio aos funcionários?</label>
+                <div class="radio-group">
+                    <label>
+                        <input type="radio" name="Apoio Funcionários" value="Sim, mais apoio" required>
+                        <span class="radio-custom"></span>
+                        Sim, mais apoio
+                    </label>
+                    <label>
+                        <input type="radio" name="Apoio Funcionários" value="Já é adequado">
+                        <span class="radio-custom"></span>
+                        Já é adequado
+                    </label>
+                    <label>
+                        <input type="radio" name="Apoio Funcionários" value="Não sei / Não se aplica">
+                        <span class="radio-custom"></span>
+                        Não sei / Não se aplica
+                    </label>
+                </div>
+            </div>
+
+            <button type="submit" id="submitButton">
+                <span class="button-content">
+                    Enviar Feedback
+                </span>
+                <div class="loading-spinner"></div>
+            </button>
+        </form>
+        <div id="responseMessage" class="message" style="display: none;"></div>
+    </div>
+
+    <script>
+        const form = document.getElementById('feedbackForm');
+        const scriptURL = document.getElementById('scriptURL').value;
+        const submitButton = document.getElementById('submitButton');
+        const responseMessage = document.getElementById('responseMessage');
+        const buttonContent = submitButton.querySelector('.button-content');
+        const loadingSpinner = submitButton.querySelector('.loading-spinner');
+
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault(); // Impede o envio padrão do formulário
+
+            // Validação básica para campos obrigatórios de rádio
+            const radioGroups = form.querySelectorAll('.radio-group');
+            let formIsValid = true;
+            radioGroups.forEach(group => {
+                const radios = group.querySelectorAll('input[type="radio"]');
+                const isRequired = Array.from(radios).some(radio => radio.hasAttribute('required'));
+                if (isRequired && !Array.from(radios).some(radio => radio.checked)) {
+                    formIsValid = false;
+                    // Opcional: Adicionar feedback visual ao utilizador aqui
+                    alert('Por favor, responda a todas as perguntas obrigatórias.');
+                }
+            });
+
+            if (!formIsValid) {
+                return; // Para o envio se a validação falhar
+            }
+
+            responseMessage.style.display = 'none';
+            responseMessage.className = 'message';
+            buttonContent.style.display = 'none';
+            loadingSpinner.style.display = 'block';
+            submitButton.disabled = true; // Desativar o botão para evitar múltiplos envios
+
+            const formData = new FormData(form);
+
+            try {
+                const response = await fetch(scriptURL, {
+                    method: 'POST',
+                    body: formData,
+                });
+
+                // Tenta parsear a resposta como JSON
+                const textResponse = await response.text();
+                let result;
+                try {
+                    result = JSON.parse(textResponse);
+                } catch (jsonError) {
+                    // Se não for JSON válido, assume que houve um erro inesperado no script
+                    throw new Error('Resposta inválida do servidor: ' + textResponse);
+                }
+
+                if (result.result === 'success') {
+                    responseMessage.textContent = 'Obrigado! O seu feedback foi enviado com sucesso.';
+                    responseMessage.classList.add('success');
+                    form.reset(); // Limpa o formulário após o sucesso
+                } else {
+                    responseMessage.textContent = `Erro ao enviar: ${result.error || 'Erro desconhecido'}`;
+                    responseMessage.classList.add('error');
+                }
+            } catch (error) {
+                console.error('Erro de rede ou servidor:', error);
+                responseMessage.textContent = `Erro de conexão. Por favor, tente novamente. (${error.message})`;
+                responseMessage.classList.add('error');
+            } finally {
+                responseMessage.style.display = 'block';
+                buttonContent.style.display = 'flex';
+                loadingSpinner.style.display = 'none';
+                submitButton.disabled = false; // Reativar o botão
+            }
+        });
+    </script>
+</body>
+</html></body></html>
